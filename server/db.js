@@ -91,7 +91,12 @@ module.exports = function(app){
        "FROM habits " + 
        "INNER JOIN updates " + 
        "ON habits.habit_id = updates.habit_id " + 
-       "GROUP BY habits.habit;");
+       "INNER JOIN users_habits " +
+       "ON habits.habit_id = users_habits.habit_id " +
+       "INNER JOIN users " +
+       "ON users_habits.user_id = users.user_id " +
+       "WHERE users.username = 'rkelly' " + 
+       "GROUP BY habits.habit ");
       var rows = [];
       if (err) {
         return console.error('error running query', err);
