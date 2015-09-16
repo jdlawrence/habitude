@@ -199,7 +199,7 @@ module.exports = function(app){
         "ON users_habits.user_id = users.user_id where users.username = '"+ user + "')";
 
       var query = client.query("SELECT * FROM ( " +
-        "SELECT DISTINCT users.username, habits.habit, habits.category, updates.update_time, habits.habit_id, " +
+        "SELECT DISTINCT users.username, habits.habit, habits.category, updates.update_time, habits.habit_id, updates.update_id, updates.kudos_count, " +
         "row_number() OVER (PARTITION BY users.username ORDER BY updates.update_time DESC) AS row " +
         "FROM habits " +
         "INNER JOIN users_habits " +
@@ -231,9 +231,11 @@ module.exports = function(app){
   });
 // VY and GLENN request for give kudos/increment the update's kudos_count
 // hardcoded for update with update_id = 1
-  app.put('/api/giveKudos', function(req, res){
+  app.post('/api/giveKudos', function(req, res){
+    var update_id = req.body.update_id;
     pg.connect(databaseURL, function(err, client, done){
-      var query = client.query('UPDATE updates SET kudos_count = kudos_count + 1 WHERE update_id = 1;');
+      // var query = client.query("UPDATE updates SET kudos_count = kudos_count + 1 WHERE update_id = " + update_id + ";");
+      var query = client.query("UPDATE updates SET kudos_count = kudos_count + 1 WHERE update_id = 1;");
       done();
       var rows = [];
       if(err){

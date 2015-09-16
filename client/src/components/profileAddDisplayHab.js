@@ -105,13 +105,15 @@ var HabitList = React.createClass({ // updates the habits db with new entry and 
       }
       return (
         <table><tbody>
-        <tr><td>
-        <button type="submit" formMethod="post" onClick={this.updateHabit.bind(this, habit)}>Check-in</button></td><td>
-        <Habit user_id={habit.user_id} key={index}>
-        {habit.habit+' '+(habit.count-1)} 
-        </Habit></td>
-        <td><button type="button" className="btn btn-xs btn-danger" formmethod="post" onClick={this.deleteHabit.bind(this, habit)}>DELETEME</button>
-        </td></tr>
+          <tr>
+            <td><button type="submit" formMethod="post" onClick={this.updateHabit.bind(this, habit)}>Check-in</button></td>
+            <td><Habit user_id={habit.user_id} key={index}>
+              {habit.habit+' '+(habit.count-1)} 
+              </Habit>
+            </td>
+            <td><button type="button" className="btn btn-xs btn-danger" formmethod="post" onClick={this.deleteHabit.bind(this, habit)}>DELETEME</button>
+            </td>
+          </tr>
         </tbody></table>
         );
     }.bind(this));
