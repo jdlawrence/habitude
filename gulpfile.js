@@ -29,8 +29,7 @@ var config = {
  }
 }
 
-
-//create tasks
+//CREATE TASKS
 
 //start a local development server
 gulp.task('connect', function() {
@@ -53,6 +52,7 @@ gulp.task('open', ['connect'], function() {
      //go get index.html and open it in this url
    .pipe(open({ uri: config.devBaseUrl + ':' + config.port + '/' }));
 });
+
 
 //handle our html files and move it over to dist
 gulp.task('html', function() {
@@ -89,6 +89,8 @@ gulp.task('js', function() {
 //    .pipe(gulp.dest(config.paths.dist + '/css'));
 // });
 
+
+
 gulp.task('lint', function() {
  return gulp.src(config.paths.js)
    .pipe(lint({ config: 'eslint.config.json' }))
@@ -105,4 +107,4 @@ gulp.task('watch', function() {
 
 //default task will run an array of tasks by default
  //when you type 'gulp' into the command line it will run these tasks
-gulp.task('default', ['html', 'js', 'lint', 'open', 'watch']);
+gulp.task('default', ['html', 'js', 'lint', 'open', 'connect', 'watch']);

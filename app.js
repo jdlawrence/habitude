@@ -19,13 +19,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 //========================================================//
 app.use(express.static(path.normalize(__dirname + '/client')));
 
-// app.use(session({ //
-//   secret: 'shhh, it\'s a secret',
-//   resave: false,
-//   saveUninitialized: true
-// }));
-
-
 //========================================================//
 //   Calling the server                                   //
 //========================================================//

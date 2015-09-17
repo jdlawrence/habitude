@@ -41,6 +41,7 @@ div {
   }
 }
 
+
 /******************* CSS STYLES FOR BOOTSTRAPPING THE COLUMNS *******************/
 html,body,.container
 {
@@ -92,4 +93,8 @@ header
 }
 #activityfeed {
   margin-top: 50%;
+}
+
+.aboutHabitude{
+  margin-top: 10%;
 }

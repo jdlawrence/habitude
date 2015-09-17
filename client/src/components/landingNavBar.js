@@ -29,19 +29,12 @@ var LandingNavBar = React.createClass({ // component for landing page's nav bar
                       ="nav navbar-nav navbar-right">
                           <li>
                               <a className
-                              ="page-scroll" href="#home">Home</a>
+                              ="page-scroll" href="../profile.html">Home</a>
                           </li>
+                          
                           <li>
                               <a className
-                              ="page-scroll" href="#activityfeed">Activity Feed</a>
-                          </li>
-                          <li>
-                              <a className
-                              ="page-scroll" href="#explore">Explore</a>
-                          </li>
-                          <li>
-                              <a className
-                              ="page-scroll" href="#about">About</a>
+                              ="page-scroll" href="../about">About</a>
                           </li>
                       </ul>
                   </div>
